@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { VideoFormComponent } from './video-form/video-form.component';
+import { InsertFormComponent } from './insert-form/insert-form.component';
 
 import { OktaAuthModule, OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
 
@@ -13,7 +13,7 @@ const routes: Routes = [
    component: HomeComponent,
    canActivate: [OktaAuthGuard],
  },
- {path: 'newVideo', component: VideoFormComponent},
+ {path: 'insert', component: InsertFormComponent},
  { path: 'implicit/callback', component: OktaCallbackComponent },
 ];
 

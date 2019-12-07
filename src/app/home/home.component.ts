@@ -29,9 +29,9 @@ export class HomeComponent implements OnInit {
    } )
  }
 
- async newVideo(event) {
+ async insert(event) {
    event.preventDefault();
-   this.router.navigate(['/newVideo']);
+   this.router.navigate(['/insert']);
  }
 
  async logout(event) {

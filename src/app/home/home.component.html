@@ -6,7 +6,7 @@
    <mat-tab-group mat-align-tabs="center" [selectedIndex]="selectedTab" dynamicHeight>
       <mat-tab label="VIDEOS">
         <h2 class="tab-title" *ngIf="videos.length === 0" >There are no videos to be shown.</h2>
-        <button mat-raised-button (click)="newVideo($event)">New Video</button>
+        <button mat-raised-button (click)="insert($event)">New Video</button>
 
         <mat-grid-list cols="4">
             <mat-grid-tile *ngFor="let video of videos" rowHeight='200px' >

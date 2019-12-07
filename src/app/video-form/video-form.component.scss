@@ -1,0 +1,24 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.top-margin-md {
+    margin-top: 15px;
+}
+
+.video-preview {
+    width: 60%;
+}
+
+.mat-tab-content, .mat-tab-label {
+    color: black;
+}
+
+.button-spaced {
+    margin-right: 20px !important;
+}

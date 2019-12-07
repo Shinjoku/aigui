@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+    <input matInput (keyup)="onSearch($event)" placeholder="Search for your videos + Press Enter">
+    <button mat-button (click)="logout($event)">LOGOUT</button>
+   </mat-toolbar>
+<mat-tab-group mat-align-tabs="center" [selectedIndex]="selectedTab" dynamicHeight>
+        <mat-tab label="VIDEO">
+            <div class="container">
+                <mat-video class="video-preview" [src]="url" *ngIf="url"></mat-video>
+                <div class="top-margin-md">
+                    <input [hidden]="true" type="file" (change)="onSelectFile($event)" accept="video/*" #file/>
+                    <button class="button-spaced" mat-raised-button [color]="'accent'" (click)="file.click()">Choose file</button>
+                    <button mat-raised-button [color]="'primary'" class="submit" (click)="sendVideo($event)">Send</button>
+                </div>
+            </div>
+        </mat-tab>
+        
+        <mat-tab label="SUSPECTS">
+
+        </mat-tab>
+</mat-tab-group>

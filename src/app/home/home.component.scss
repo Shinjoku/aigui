@@ -1,0 +1,13 @@
+.tab-title {
+    text-align: center;
+}
+
+.mat-tab-label, .mat-tab-link {
+    color: black !important;
+}
+
+.action{
+    &[align="end"] {
+        justify-content: flex-end;
+    }
+}

@@ -1,0 +1,72 @@
+.img-preview {
+    width: 35px;
+    height: auto;
+}
+
+.centered-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-tile {
+    height: 50px;
+    bottom: 15px;
+}
+
+.suspects-container {
+    height: 80vh;
+}
+
+.mat-card-footer {
+    flex-grow: 1;
+}
+
+.row-container {
+    margin: 15px;
+    float: left;
+}
+
+.scrollable {
+    overflow: auto;
+}
+
+.form-field {
+    width: 90%;
+    left: 0;
+}
+
+.suspects-list {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.suspect-card {
+    margin: 15px;
+    height: 100%;
+    width: 100%;
+}
+
+.mat-card {
+    display:flex;
+    flex-direction: column;
+    width: calc(100% - 70px);
+    height: calc(100% - 70px);
+}
+
+.mat-card-header {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+}
+
+.mat-card-content{
+    flex-grow: 1;
+    overflow: auto;
+    // outline: 1px solid red; / / uncomment to see test outlines **/
+}
+.list {
+    height: 90%;
+}

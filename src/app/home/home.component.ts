@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
  async ngOnInit() {
    this.apiClient.getVideos().then( (videos) => {
      this.videos = videos;
-   } )
+   });
  }
 
  async insert(event) {
@@ -63,11 +63,6 @@ export class HomeComponent implements OnInit {
  }
 
  updateBackend = (video) => {
-   if (this.isVideo(video)) {
-     this.apiClient.deleteVideo(video);
-   } else {
-     this.apiClient.createVideo(video);
-   }
-   this.updateState(video);
+
  }
 }

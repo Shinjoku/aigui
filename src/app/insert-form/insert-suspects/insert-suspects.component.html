@@ -1,0 +1,76 @@
+<div class="suspects-container centered-box scrollable">
+    <mat-grid-list cols="3" class="suspects-list top-offset-md" rowHeight='400px'>
+        <!-- New Suspect-->
+        <mat-grid-tile>
+            <div class="suspect-card centered-box">
+                <mat-card class="card scrollable">
+                    <mat-card-header class="title">
+                        <form [formGroup]="suspectsForm" class="form-field">
+                            <mat-form-field class="form-field">
+                                <mat-label>Name</mat-label>
+                                <input matInput formControlName="newSuspectName" placeholder="Suspect name"/>
+                            </mat-form-field>
+                        </form>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-grid-list cols="3" class="list">
+                            <mat-grid-tile class="scrollable" *ngFor="let imgSrc of newSuspect.imagesVisualization">
+                                <img [src]="imgSrc" height="120px" width="120px" alt="">
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-card-content>
+                    <mat-card-footer class="footer">
+                        <mat-grid-list cols="2" class="list">
+                            <mat-grid-tile>
+                                <input [hidden]="true" type="file" (change)="onImageSelected($event)" accept="image/*" #file/>
+                                <button mat-raised-button [color]="'accent'" (click)="file.click()">Add photo</button>
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                                <button mat-raised-button [color]="'primary'" (click)="addSuspect($event)">Create Suspect</button>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-card-footer>
+                </mat-card>
+            </div>
+        </mat-grid-tile>
+
+        <!-- Suspects collection -->
+        <mat-grid-tile *ngFor="let suspect of suspects; let i = index">
+                <div class="suspect-card centered-box">
+    
+                    <mat-card class="card scrollable">
+                        <mat-card-header class="title">
+                            <form [formGroup]="suspectsForm" class="form-field">
+                                <mat-form-field class="form-field">
+                                    <mat-label>Name</mat-label>
+                                    <input matInput [value]="suspect.name" placeholder="Suspect name"/>
+                                </mat-form-field>
+                            </form>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <mat-grid-list cols="3" class="list">
+                                <mat-grid-tile class="scrollable" *ngFor="let imgSrc of suspect.imagesVisualization">
+                                    <img [src]="imgSrc" height="120px" width="120px" alt="">
+                                </mat-grid-tile>
+                            </mat-grid-list>
+                        </mat-card-content>
+                        <mat-card-footer class="footer">
+                            <mat-grid-list cols="2" class="list">
+                                <mat-grid-tile>
+                                    <input [hidden]="true" type="file" (change)="onImageSelected($event, suspect)" accept="image/*" #file/>
+                                    <button mat-raised-button [color]="'accent'" (click)="file.click()">Add photo</button>
+                                </mat-grid-tile>
+                                <mat-grid-tile>
+                                    <button mat-raised-button [color]="'warn'" (click)="removeSuspect($event, suspect)">Delete</button>
+                                </mat-grid-tile>
+                            </mat-grid-list>
+                        </mat-card-footer>
+                    </mat-card>
+                </div>
+            </mat-grid-tile>
+            
+    </mat-grid-list>
+    <div class="top-margin-md">
+        <button mat-raised-button [color]="'primary'" class="submit" (click)="sendSuspects($event)">Send</button>
+    </div>
+</div>

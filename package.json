@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --open --port 8080",
     "build": "ng build",
+    "prod": "ng build --prod=true --deploy-url '/static/' --output-path '../aiapi/app/static/' --base-href '/static/'",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

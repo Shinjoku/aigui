@@ -1,48 +1,65 @@
 <mat-toolbar color="primary">
-    <input matInput (keyup)="onSearch($event)" placeholder="Search for your videos + Press Enter">
-    <button mat-button (click)="logout($event)">LOGOUT</button>
-   </mat-toolbar>
-   
-   <mat-tab-group mat-align-tabs="center" [selectedIndex]="selectedTab" dynamicHeight>
-      <mat-tab label="VIDEOS">
-        <h2 class="tab-title" *ngIf="videos.length === 0" >There are no videos to be shown.</h2>
-        <button mat-raised-button (click)="insert($event)">New Video</button>
+	<input class="the-topbar-form" matInput (keyup)="onSearch($event)" placeholder="Search for your videos + Press Enter" />
+	<button mat-button (click)="logout($event)">LOGOUT</button>
+</mat-toolbar>
 
-        <mat-grid-list cols="4">
-            <mat-grid-tile *ngFor="let video of videos" rowHeight='200px' >
-                <mat-card class="card">
-                  <mat-card-header class="title">
-                    <mat-card-title>{{video.title}}</mat-card-title>
-                  </mat-card-header>
-                  <mat-card-content>
-                    {{video.description}}
-                  </mat-card-content>
-                  <mat-card-actions>
-                    <button mat-icon-button [color]="isVideo(video) ? 'accent' : 'primary'" (click)="onVideo($event, video)">
-                      <mat-icon >favorite</mat-icon>
-                    </button>
-                  </mat-card-actions>
-                </mat-card>
-            </mat-grid-tile>
-        </mat-grid-list>
-      </mat-tab>
-      <mat-tab label="SEARCH">
-        <mat-grid-list cols="4">
-            <mat-grid-tile *ngFor="let video of videos" rowHeight='200px' >
-                <mat-card class="card">
-                  <mat-card-header class="title">
-                    <mat-card-title>{{video.title}}</mat-card-title>
-                  </mat-card-header>
-                  <mat-card-content>
-                    {{video.description}}
-                  </mat-card-content>
-                  <mat-card-actions>
-                    <button mat-icon-button [color]="isVideo(video) ? 'accent' : 'primary'" (click)="onVideo($event, video)">
-                      <mat-icon >favorite</mat-icon>
-                    </button>
-                  </mat-card-actions>
-                </mat-card>
-            </mat-grid-tile>
-        </mat-grid-list>
-      </mat-tab>
-   </mat-tab-group>
+<div>
+	<mat-tab-group #tab mat-align-tabs="center" [selectedIndex]="selectedTab" dynamicHeight>
+		<mat-tab label="VIDEOS">
+			<h2 class="tab-title" *ngIf="videos.length === 0">There are no videos to be shown.</h2>
+			<button mat-raised-button (click)="insert($event)">Add Video/Suspect</button>
+
+			<mat-grid-list cols="4">
+				<mat-grid-tile *ngFor="let video of videos" rowHeight='200px'>
+					<mat-card class="card center-text">
+						<mat-card-header class="home-card-title center-text">
+							{{video.title}}
+						</mat-card-header>
+						<mat-card-content>
+							<div class="top-margin-md">
+								<img width="100%" [src]="getThumb(video.thumbnail)">
+								<p *ngIf="getSuspectsNumber(video)">
+									<strong>Found {{ video.result.suspects.length }} suspect(s):</strong></p>
+								<p *ngFor="let suspect of video.result.suspects">
+									{{ suspect.name }}
+								</p>
+							</div>
+						</mat-card-content>
+						<mat-card-actions class="right-box">
+							<button mat-icon-button [color]="'warn'" (click)="onVideo($event, video)">
+								<mat-icon>delete</mat-icon>
+							</button>
+						</mat-card-actions>
+					</mat-card>
+				</mat-grid-tile>
+			</mat-grid-list>
+		</mat-tab>
+		<mat-tab label="SEARCH">
+			<mat-grid-list cols="4">
+				<mat-grid-tile *ngFor="let video of videosWithFilter" rowHeight='200px'>
+					<mat-card class="card center-text">
+						<mat-card-header class="title">
+							<mat-card-title>{{video.title}}</mat-card-title>
+						</mat-card-header>
+						<mat-card-content>
+							<div class="top-margin-md">
+								<img width="100%" [src]="getThumb(video.thumbnail)">
+								<p *ngIf="getSuspectsNumber(video)">
+									<strong>Found {{ video.result.suspects.length }} suspect(s):</strong></p>
+								<p *ngFor="let suspect of video.result.suspects">
+									{{ suspect.name }}
+								</p>
+							</div>
+						</mat-card-content>
+						<mat-card-actions>
+							<button mat-icon-button [color]="isVideo(video) ? 'accent' : 'primary'"
+								(click)="onVideo($event, video)">
+								<mat-icon>delete</mat-icon>
+							</button>
+						</mat-card-actions>
+					</mat-card>
+				</mat-grid-tile>
+			</mat-grid-list>
+		</mat-tab>
+	</mat-tab-group>
+</div>

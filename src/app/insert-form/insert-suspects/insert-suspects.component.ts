@@ -16,7 +16,7 @@ export class InsertSuspectsComponent implements OnInit {
   error: String;
   message: String;
   suspects;
-  private suspectsForm: FormGroup;
+  suspectsForm: FormGroup;
 
   newSuspect = {
     name: "",

@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation} from '@angular/core';
-import { InsertVideoService } from "./insert-video/insert-video.service";
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Component({
   selector: 'insert-form',
@@ -9,7 +8,14 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   encapsulation: ViewEncapsulation.None
 })
 export class InsertFormComponent implements OnInit {
-  constructor() {}
+  constructor(private oktaAuth: OktaAuthService) {}
+
+  selectedTab: Number;
 
   ngOnInit() {}
+
+  async logout(event){
+    event.preventDefault();
+    await this.oktaAuth.logout('/');
+  }
 }

@@ -14,7 +14,7 @@
                     </mat-card-header>
                     <mat-card-content>
                         <mat-grid-list cols="3" class="list">
-                            <mat-grid-tile class="scrollable" *ngFor="let imgSrc of newSuspect.imagesVisualization">
+                            <mat-grid-tile *ngFor="let imgSrc of newSuspect.imagesVisualization">
                                 <img [src]="imgSrc" height="120px" width="120px" alt="">
                             </mat-grid-tile>
                         </mat-grid-list>
@@ -49,7 +49,7 @@
                         </mat-card-header>
                         <mat-card-content>
                             <mat-grid-list cols="3" class="list">
-                                <mat-grid-tile class="scrollable" *ngFor="let imgSrc of suspect.imagesVisualization">
+                                <mat-grid-tile *ngFor="let imgSrc of suspect.imagesVisualization">
                                     <img [src]="imgSrc" height="120px" width="120px" alt="">
                                 </mat-grid-tile>
                             </mat-grid-list>

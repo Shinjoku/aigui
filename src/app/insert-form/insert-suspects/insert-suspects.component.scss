@@ -50,8 +50,6 @@
 }
 
 .mat-card {
-    display:flex;
-    flex-direction: column;
     width: calc(100% - 70px);
     height: calc(100% - 70px);
 }
@@ -66,7 +64,4 @@
     flex-grow: 1;
     overflow: auto;
     // outline: 1px solid red; / / uncomment to see test outlines **/
-}
-.list {
-    height: 90%;
 }

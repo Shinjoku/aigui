@@ -1,7 +1,6 @@
 <mat-toolbar color="primary">
-    <input matInput (keyup)="onSearch($event)" placeholder="Search for your videos + Press Enter">
     <button mat-button (click)="logout($event)">LOGOUT</button>
-   </mat-toolbar>
+</mat-toolbar>
 <mat-tab-group mat-align-tabs="center" [selectedIndex]="selectedTab" dynamicHeight>
         <mat-tab label="VIDEO">
             <insert-video></insert-video>

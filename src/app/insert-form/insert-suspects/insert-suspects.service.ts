@@ -44,6 +44,12 @@ async createSuspect(suspect) {
     options
   );
 
+  req = req.clone({
+    setHeaders: {
+        'Authorization': `Bearer ${accessToken}`
+    }
+  })
+
   return this.http.request(req).toPromise(); 
 }
 

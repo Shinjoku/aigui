@@ -15,6 +15,7 @@ export class InsertVideoComponent implements OnInit {
   error: String;
   file: File;
   message: String;
+  private _videoIsAvailable: boolean;
 
   constructor(
     private videoService: InsertVideoService,
@@ -26,20 +27,29 @@ export class InsertVideoComponent implements OnInit {
 
   onVideoSelected(event) {
     this.file = event.target.files && event.target.files[0];
+    try {
 
-    if(this.file){
-      let reader = new FileReader();
-      reader.readAsDataURL(this.file);
-
-      if(this.file.type.indexOf('video') > -1)
+      if(this.file){
+        let reader = new FileReader();
+        reader.readAsDataURL(this.file);
+        
+        if(this.file.type.indexOf('video') > -1)
         this.format = 'video';
-      else
+        else
         this.error = 'Not supported file.';
-
-      reader.onload = (event) => {
-        this.url = (<FileReader>event.target).result;
+        
+        reader.onload = (event) => {
+          this.url = (<FileReader>event.target).result;
+          this._videoIsAvailable = true;
+        }
       }
+    } catch(e){
+      console.log(e);
     }
+  }
+
+  videoIsAvailable() {
+    return this._videoIsAvailable;
   }
 
   openSnack(message){
@@ -52,10 +62,20 @@ export class InsertVideoComponent implements OnInit {
     }
     else {
 
-      this.videoService.createVideo(this.file)
-        .then(res => this.openSnack('Video uploaded successfully.'))
-        .catch(err => this.openSnack('Error: ' + err.message));
+      this.videoService.createVideo(this.file, this.uploadInProgress, this.uploadCompleted, this.errorOnProcessing);
     }
+  }
+
+  errorOnProcessing = (e) => {
+    this.openSnack(e);
+  }
+
+  uploadInProgress = () => {
+    this.openSnack("You upload has begun");
+  }
+
+  uploadCompleted = () => {
+    this.openSnack('You upload has been completed!');
   }
 
 }

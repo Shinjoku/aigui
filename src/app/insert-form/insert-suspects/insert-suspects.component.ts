@@ -80,7 +80,7 @@ export class InsertSuspectsComponent implements OnInit {
         this.suspectsService.createSuspect(suspect)
         .then(res => {
           console.log(res);
-          this.openSnack('Video uploaded successfully.')
+          this.openSnack('Suspects uploaded successfully.')
         })
         .catch(err => this.openSnack('Error: ' + err.message));
       });

@@ -1,5 +1,5 @@
 <div class="video-container">
-    <mat-video class="video-preview" [src]="url" *ngIf="url"></mat-video>
+    <mat-video *ngIf="videoIsAvailable()" class="video-preview" [autoplay]="true" [src]="url" ></mat-video>
     <div class="top-margin-md">
         <input [hidden]="true" type="file" (change)="onVideoSelected($event)" accept="video/*" #file/>
         <button class="button-spaced" mat-raised-button [color]="'accent'" (click)="file.click()">Choose file</button>

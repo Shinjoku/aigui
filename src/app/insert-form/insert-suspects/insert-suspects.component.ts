@@ -88,7 +88,7 @@ export class InsertSuspectsComponent implements OnInit {
   }
 
   async addSuspect(event) {
-    this.newSuspect['name'] = this.suspectsForm.value['newSuspectName'];
+    this.newSuspect['name'] = this.suspectsForm.value['newSuspectName'].replace(/\./g, '');;
     this.suspects.push(this.newSuspect);
 
     this.newSuspect = {

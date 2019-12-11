@@ -76,6 +76,7 @@
 }
 
 .mat-card {
+    transition: 0.5s !important;
     display:flex;
     flex-direction: column;
     width: calc(100% - 70px);
@@ -87,6 +88,12 @@
         justify-content: right;
         align-items: flex-end;
     }
+}
+
+.mat-card:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    background-color: #686868;
 }
 
 .mat-card-header {

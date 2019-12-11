@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'insert-form',
@@ -8,7 +9,7 @@ import { OktaAuthService } from '@okta/okta-angular';
   encapsulation: ViewEncapsulation.None
 })
 export class InsertFormComponent implements OnInit {
-  constructor(private oktaAuth: OktaAuthService) {}
+  constructor(private oktaAuth: OktaAuthService, private router: Router) {}
 
   selectedTab: Number;
 
@@ -17,5 +18,10 @@ export class InsertFormComponent implements OnInit {
   async logout(event){
     event.preventDefault();
     await this.oktaAuth.logout('/');
+  }
+
+  redirectMain(event) {
+    event.preventDefault();
+    this.router.navigate(['/home']);
   }
 }

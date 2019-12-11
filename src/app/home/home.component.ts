@@ -33,7 +33,8 @@ export class HomeComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.apiClient.getVideos().then((videos) => {
+    this.apiClient.getVideos().then((videos) => {   
+      videos.forEach(v => v.result.suspects.map(s => s.name = s.name.replace(/_/g, ' ')));
       this.videos = videos;
     });
   }
@@ -70,9 +71,13 @@ export class HomeComponent implements OnInit {
     this.selectedTab = 1;
   }
 
-  onVideo(event, video) {
+  delete(event, video) {
     event.preventDefault();
-    this.updateBackend(video);
+
+    this.apiClient.perform('delete', '/video/' + video.id);
+
+    let idx = this.videos.indexOf(video);
+    this.videos.splice(idx, 1);
   }
 
   updateState(video) {

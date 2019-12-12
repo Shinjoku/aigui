@@ -61,7 +61,7 @@ export class InsertVideoComponent implements OnInit {
       this.openSnack('First, you have to select a video!')
     }
     else {
-
+      this.openSnack("Your video is being uploaded. You can continue to navigate now.");
       this.videoService.createVideo(this.file, this.uploadInProgress, this.uploadCompleted, this.errorOnProcessing);
     }
   }

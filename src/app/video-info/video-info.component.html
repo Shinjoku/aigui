@@ -1,1 +1,24 @@
-<p>video-info works!</p>
+<body>
+    <mat-toolbar color="primary">
+        <button mat-raised-button (click)="redirectMain($event)">BACK</button>
+        <button mat-button (click)="logout($event)">LOGOUT</button>
+    </mat-toolbar>
+
+    <div *ngIf="video">
+        <h1>{{ video.name }}</h1>
+
+        <mat-list class="photos-container" role="list">
+            <h1 class="video-title" mat-subheader>Suspects</h1>
+            <div class="divisor" *ngFor="let item of video.result.suspects">
+                <mat-list-item role="listitem">
+                    <mat-icon mat-list-icon>search</mat-icon>
+                    <h4 mat-line>{{ item.name }}</h4>
+                    <p mat-line> Miliseconds: from {{ item.miliseconds[0] }} to {{ item.miliseconds.slice(-1)[0] }}</p>
+                </mat-list-item>
+                <div role="listitem" class="photos-list">
+                    <img class="photo" *ngFor="let img of item.pictures" [src]="getImg(img)"/>
+                </div>
+            </div>
+        </mat-list>
+    </div>
+</body>

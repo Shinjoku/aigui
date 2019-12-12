@@ -14,7 +14,8 @@ import {
  MatGridListModule,
  MatSnackBarModule,
  MatFormFieldModule,
- MatInputModule
+ MatInputModule,
+ MatListModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +26,7 @@ import { InsertFormComponent } from './insert-form/insert-form.component';
 import { InsertVideoComponent } from './insert-form/insert-video/insert-video.component';
 import { InsertSuspectsComponent } from './insert-form/insert-suspects/insert-suspects.component';
 import { VideoInfoComponent } from './video-info/video-info.component';
+import { TableOfContents } from './video-info/table-of-contents/table-of-contents.component';
 
 @NgModule({
  declarations: [
@@ -34,7 +36,8 @@ import { VideoInfoComponent } from './video-info/video-info.component';
    InsertFormComponent,
    InsertVideoComponent,
    InsertSuspectsComponent,
-   VideoInfoComponent
+   VideoInfoComponent,
+   TableOfContents
  ],
  imports: [
    BrowserModule,
@@ -53,7 +56,8 @@ import { VideoInfoComponent } from './video-info/video-info.component';
    MatFormFieldModule,
    ReactiveFormsModule,
    MatInputModule,
-   FormsModule
+   FormsModule,
+   MatListModule
  ],
  providers: [],
  bootstrap: [AppComponent]

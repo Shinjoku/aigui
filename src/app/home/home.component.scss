@@ -6,6 +6,7 @@ body {
 
 .tab-title {
     text-align: center;
+    color: #d0d0d0;
 }
 
 .the-topbar-form {
@@ -19,10 +20,6 @@ body {
 .img-preview {
     width: 35px;
     height: auto;
-}
-
-.home-card-title {
-    font-size: 2em;
 }
 
 .center-text {
@@ -75,14 +72,14 @@ body {
     width: 100%;
 }
 
-.mat-card {
+.home-mat-card {
     transition: 0.5s !important;
     display:flex;
     flex-direction: column;
     width: calc(100% - 70px);
     height: calc(100% - 70px);
 
-    .mat-card-actions {
+    .home-mat-card-actions {
         display: flex;
         flex-direction: column;
         justify-content: right;
@@ -90,20 +87,22 @@ body {
     }
 }
 
-.mat-card:hover {
+.home-mat-card:hover {
     transform: scale(1.05);
     transition: 0.5s;
     background-color: #5c5c5c;
 }
 
-.mat-card-header {
+.home-mat-card-header {
     display: flex;
     flex-direction: row;
     flex-shrink: 0;
+    font-size: 2em;
 }
 
-.mat-card-content{
+.home-mat-card-content{
     flex-grow: 1;
     overflow: auto;
+    overflow-x: hidden;
     // outline: 1px solid red; / / uncomment to see test outlines **/
 }

@@ -38,6 +38,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  getVideo(event, video) {
+    this.router.navigate(['videos/' + video.id]);
+  }
+
   getSuspectsNumber(video) {
     if(video.result && video.result.suspects){
       return true;
@@ -73,22 +77,10 @@ export class HomeComponent implements OnInit {
   delete(event, video) {
     event.preventDefault();
 
-    this.apiClient.perform('delete', '/video/' + video.id);
+    this.apiClient.deleteVideo(video.id);
 
     let idx = this.videos.indexOf(video);
     this.videos.splice(idx, 1);
-  }
-
-  updateState(video) {
-    if (this.isVideo(video)) {
-      this.videos = this.videos.filter(r => r['id'] !== video.id);
-    } else {
-      this.videos = [video, ...this.videos];
-    }
-  }
-
-  isVideo(video) {
-    return this.videos.find(r => r['id'] === video.id);
   }
 
   updateBackend = (video) => {

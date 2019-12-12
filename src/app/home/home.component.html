@@ -11,11 +11,11 @@
 
 			<mat-grid-list cols="4">
 				<mat-grid-tile *ngFor="let video of videos" rowHeight='200px'>
-					<mat-card class="card center-text">
+					<mat-card class="card center-text home-mat-card" (click)="getVideo($event, video)">
 						<mat-card-header class="home-card-title center-text">
 							{{video.title}}
 						</mat-card-header>
-						<mat-card-content>
+						<mat-card-content class="home-mat-card-content">
 							<div class="top-margin-md">
 								<img width="100%" [src]="getThumb(video.thumbnail)">
 								<p *ngIf="getSuspectsNumber(video)">
@@ -25,7 +25,7 @@
 								</p>
 							</div>
 						</mat-card-content>
-						<mat-card-actions class="right-box">
+						<mat-card-actions class="home-mat-card-actions right-box">
 							<button mat-icon-button [color]="'warn'" (click)="delete($event, video)">
 								<mat-icon>delete</mat-icon>
 							</button>

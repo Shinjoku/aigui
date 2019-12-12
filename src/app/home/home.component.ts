@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
 
   async ngOnInit() {
     this.apiClient.getVideos().then((videos) => {   
-      videos.forEach(v => v.result.suspects.map(s => s.name = s.name.replace(/_/g, ' ')));
       this.videos = videos;
     });
   }

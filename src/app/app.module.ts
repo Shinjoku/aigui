@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import { InsertFormComponent } from './insert-form/insert-form.component';
 import { InsertVideoComponent } from './insert-form/insert-video/insert-video.component';
 import { InsertSuspectsComponent } from './insert-form/insert-suspects/insert-suspects.component';
+import { VideoInfoComponent } from './video-info/video-info.component';
 
 @NgModule({
  declarations: [
@@ -32,7 +33,8 @@ import { InsertSuspectsComponent } from './insert-form/insert-suspects/insert-su
    HomeComponent,
    InsertFormComponent,
    InsertVideoComponent,
-   InsertSuspectsComponent
+   InsertSuspectsComponent,
+   VideoInfoComponent
  ],
  imports: [
    BrowserModule,

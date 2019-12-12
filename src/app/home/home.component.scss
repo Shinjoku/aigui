@@ -1,5 +1,9 @@
 @import "@angular/material/prebuilt-themes/pink-bluegrey.css";
 
+body {
+    background-color: #303030;
+}
+
 .tab-title {
     text-align: center;
 }
@@ -10,10 +14,6 @@
     background-color: transparent;
     color: white;
     font-size: 1em;
-}
-
-.mat-tab-label, .mat-tab-link {
-    color: black !important;
 }
 
 .img-preview {
@@ -93,7 +93,7 @@
 .mat-card:hover {
     transform: scale(1.05);
     transition: 0.5s;
-    background-color: #686868;
+    background-color: #5c5c5c;
 }
 
 .mat-card-header {
